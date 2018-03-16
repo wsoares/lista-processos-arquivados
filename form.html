@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Formulário de processos enviados ao Arquivo Central</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
     <script type="text/javascript">
         function addRow(){
           var container = document.getElementById('table');
@@ -13,6 +17,7 @@
           processNumber.placeholder = "0000000-00.0000";
           processNumber.size = "15";
           processNumber.required = true;
+          processNumber.className = "mask-processo";
 
           var author = document.createElement("input");
           author.type = "text";
@@ -33,16 +38,30 @@
           container.appendChild(defendant);
           container.appendChild(document.createElement("br"));
         }
+
         function removeRow(){
 
         }
+
         function createTable(){
           var tableSize = document.getElementById('linhasdatabela').value;
           if (tableSize > 0) {
             for (var i = 0; i < tableSize; i++) {
               addRow();
             }
-          }else {
+
+            // Mascara para o campo de processo
+            jQuery(".mask-processo").mask("0000000-00.0000");
+
+            // Mudar de campo quando o input 
+            jQuery(".mask-processo").on("change paste keyup input", function(e) {
+              var val = this.value;
+              if(val && val.length >= 15) {
+                jQuery(this).next().focus();
+              }
+            });
+          }
+          else {
             alert("Dimensão da tabela é inválida.");
           }
 
