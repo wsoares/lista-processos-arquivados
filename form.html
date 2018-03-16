@@ -5,22 +5,14 @@
     <title>Formulário de processos enviados ao Arquivo Central</title>
 
     <!-- jQuery -->
-<<<<<<< HEAD
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- jQuery Input Mask -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
-=======
     <script src="jquery.min.js"></script>
-    
+
     <!-- jQuery Input Mask -->
     <script src="jquery.mask.min.js"></script>
-    
->>>>>>> 8af975a76382c40550753e7e27d65009ba381737
+
     <script type="text/javascript">
         function addRow(){
-          var container = document.getElementById('table');
+          var container = document.getElementByClass('table');
           var newRow = document.createElement('div');
 
           var processNumber = document.createElement("input");
@@ -52,7 +44,7 @@
         }
 
         function removeRow(){
-          
+
         }
 
         function createTable(){
@@ -94,7 +86,7 @@
         <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2">
         <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
       </div>
-      <div id="table">
+      <div class="table">
         <span class='header'>Numero do processo</span> <span class="header">Parte autora</span> <span class="header">Parte Requerida</span><br>
       </div>
       <button type="button" name="Add_new_line" onclick="addRow();">Add</button>
