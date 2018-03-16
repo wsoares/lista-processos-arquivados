@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+  <title>Identificador de Caixas-Arquivo</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script>
+    function preencherEtiquetas(){
+      var num_inicial = prompt("Digite o número da primeira caixa:");
+      for(i=0; i < 8; i++){
+        document.getElementById(i).innerHTML = "CX. " + (Number(num_inicial) +
+                                                Number(i));
+      }
+    }
+  </script>
+</head>
+<body onload="preencherEtiquetas()">
+<!-- <body> -->
+  <page size="A4" layout="portrait">
+    <table>
+      <tr>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='0'></p>
+        </td>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='1'></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='2'></p>
+        </td>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='3'></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='4'></p>
+        </td>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='5'></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='6'></p>
+        </td>
+        <td>
+          <p>Comarca:</p>
+          <p>FEIRA DE SANTANA</p>
+          <p>Unidade:</p>
+          <p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>
+          <p id='7'></p>
+        </td>
+      </tr>
+    </table>
+  </page>
+</body>
+</html>
