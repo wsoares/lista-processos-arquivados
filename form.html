@@ -6,6 +6,7 @@
     <script type="text/javascript">
         function addRow(){
           var container = document.getElementById('table');
+          var newRow = document.createElement('div');
 
           var processNumber = document.createElement("input");
           processNumber.type = "text";
@@ -28,13 +29,13 @@
           defendant.size = "30";
           defendant.required = true;
 
-          container.appendChild(processNumber);
-          container.appendChild(author);
-          container.appendChild(defendant);
-          container.appendChild(document.createElement("br"));
+          newRow.appendChild(processNumber);
+          newRow.appendChild(author);
+          newRow.appendChild(defendant);
+          container.appendChild(newRow);
         }
         function removeRow(){
-
+          
         }
         function createTable(){
           var tableSize = document.getElementById('linhasdatabela').value;
@@ -64,11 +65,7 @@
         <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
       </div>
       <div id="table">
-        <span>Numero do processo <span>Parte autora</span> <span>Parte Requerida</span><br>
-        <!-- <input type="text" name="num_processo[]" value="0000000-00.0000" size="15">
-        <input type="text" name="autor[]" value="" size="30">
-        <input type="text" name="requerido[]" value="" size="30">
-        <br> -->
+        <span class='header'>Numero do processo</span> <span class="header">Parte autora</span> <span class="header">Parte Requerida</span><br>
       </div>
       <button type="button" name="Add_new_line" onclick="addRow();">Add</button>
       <p id='test'>
