@@ -6,10 +6,10 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    
+
     <!-- jQuery Input Mask -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    
+
     <script type="text/javascript">
         function addRow(){
           var container = document.getElementById('table');
@@ -57,7 +57,7 @@
             // Mascara para o campo de processo
             jQuery(".mask-processo").mask("0000000-00.0000");
 
-            // Mudar de campo quando o input 
+            // Mudar de campo quando o input
             jQuery(".mask-processo").on("change paste keyup input", function(e) {
               var val = this.value;
               if(val && val.length >= 15) {
