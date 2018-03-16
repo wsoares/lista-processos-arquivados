@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulário de processos enviados ao Arquivo Central</title>
+    <script type="text/javascript">
+        function addRow(){
+          var container = document.getElementById('table');
+
+          var processNumber = document.createElement("input");
+          processNumber.type = "text";
+          processNumber.name = "num_processo[]";
+          processNumber.placeholder = "0000000-00.0000";
+          processNumber.size = "15";
+          processNumber.required = true;
+
+          var author = document.createElement("input");
+          author.type = "text";
+          author.name = "autor[]";
+          author.value = "";
+          author.size = "30";
+          author.required = true;
+
+          var defendant = document.createElement("input");
+          defendant.type = "text";
+          defendant.name = "autor[]";
+          defendant.value = "";
+          defendant.size = "30";
+          defendant.required = true;
+
+          container.appendChild(processNumber);
+          container.appendChild(author);
+          container.appendChild(defendant);
+          container.appendChild(document.createElement("br"));
+        }
+        function removeRow(){
+
+        }
+        function createTable(){
+          var tableSize = document.getElementById('linhasdatabela').value;
+          if (tableSize > 0) {
+            for (var i = 0; i < tableSize; i++) {
+              addRow();
+            }
+          }else {
+            alert("Dimensão da tabela é inválida.");
+          }
+
+        }
+    </script>
+  </head>
+  <body>
+    <header>
+       <h1>Listagem de processos enviados para o Arquivo Central</h1>
+    </header>
+    <form>
+      <div>
+        <label for="caixa">Insira o número da Caixas-Arquivo:</label>
+        <input type="text" id="caixa" name="num_cx" size="3">
+      </div>
+      <div>
+        <label for="linhasdatabela">Insira o tamanho da tabela:</label>
+        <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2">
+        <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
+      </div>
+      <div id="table">
+        <span>Numero do processo <span>Parte autora</span> <span>Parte Requerida</span><br>
+        <!-- <input type="text" name="num_processo[]" value="0000000-00.0000" size="15">
+        <input type="text" name="autor[]" value="" size="30">
+        <input type="text" name="requerido[]" value="" size="30">
+        <br> -->
+      </div>
+      <button type="button" name="Add_new_line" onclick="addRow();">Add</button>
+      <p id='test'>
+
+      </p>
+    </form>
+  </body>
+</html>
