@@ -12,7 +12,7 @@
 
     <script type="text/javascript">
         function addRow(){
-          var container = document.getElementByClass('table');
+          var container = document.getElementById("listofprocesses");
           var newRow = document.createElement('div');
 
           var processNumber = document.createElement("input");
@@ -44,7 +44,13 @@
         }
 
         function removeRow(){
-
+            var table = document.getElementById("listofprocesses");
+            var lastRow = table.lastChild;
+            if(lastRow != null && lastRow.tagName == "DIV"){
+              table.removeChild(lastRow);
+            }else{
+              alert("A tabela está vazia");
+            }
         }
 
         function createTable(){
@@ -86,10 +92,13 @@
         <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2">
         <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
       </div>
-      <div class="table">
-        <span class='header'>Numero do processo</span> <span class="header">Parte autora</span> <span class="header">Parte Requerida</span><br>
+      <div id="listofprocesses" class="table">
+        <span class='header'>Numero do processo</span>
+        <span class="header">Parte autora</span>
+        <span class="header">Parte Requerida</span><br>
       </div>
-      <button type="button" name="Add_new_line" onclick="addRow();">Add</button>
+      <button type="button" name="add_new_line" onclick="addRow();">Add</button>
+      <button type="button" name="remove_line" onclick="removeRow();">Remove</button>
       <p id='test'>
 
       </p>
