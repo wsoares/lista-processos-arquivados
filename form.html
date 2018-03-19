@@ -25,14 +25,14 @@
 
           var author = document.createElement("input");
           author.type = "text";
-          author.name = "autor[]";
+          author.name = "author[]";
           author.value = "";
           author.size = "30";
           author.required = true;
 
           var defendant = document.createElement("input");
           defendant.type = "text";
-          defendant.name = "autor[]";
+          defendant.name = "defendant[]";
           defendant.value = "";
           defendant.size = "30";
           defendant.required = true;
@@ -76,13 +76,35 @@
           }
 
         }
+
+        function generateList(){
+          var listofprocesses = document.getElementById('filingform');
+          var total = listofprocesses.elements['num_processo[]'].length;
+
+          //Defining the table elements
+          var table = document.createElement("table");
+          var row = table.insertRow(0);
+          //defining the header
+          row.insertCell(0).innerHTML = "<th>Número do processo</th>";
+          row.insertCell(1).innerHTML = "<th>Parte Autora</th>";
+          row.insertCell(2).innerHTML = "<th>Parte Requerida</th>";
+
+          //adding data
+          for (var i = 0; i < total; i++) {
+            row = table.insertRow(-1);
+            row.insertCell(0).innerHTML = listofprocesses.elements['num_processo[]'][i].value;
+            row.insertCell(1).innerHTML = listofprocesses.elements['author[]'][i].value;
+            row.insertCell(2).innerHTML = listofprocesses.elements['defendant[]'][i].value;
+          }
+          document.getElementsByTagName("body")[0].appendChild(table);
+        }
     </script>
   </head>
   <body>
     <header>
        <h1>Listagem de processos enviados para o Arquivo Central</h1>
     </header>
-    <form>
+    <form id="filingform">
       <div>
         <label for="caixa">Insira o número da Caixas-Arquivo:</label>
         <input type="text" id="caixa" name="num_cx" size="3">
@@ -99,9 +121,7 @@
       </div>
       <button type="button" name="add_new_line" onclick="addRow();">Add</button>
       <button type="button" name="remove_line" onclick="removeRow();">Remove</button>
-      <p id='test'>
-
-      </p>
+      <button type="button" name="generate_list" onclick="generateList();">Gerar Lista</button>
     </form>
   </body>
 </html>
