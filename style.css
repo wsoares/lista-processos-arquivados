@@ -1,0 +1,66 @@
+body{
+	font-family: Helvetica, sans-serif, serif;
+	font-size: 20px;
+}
+input{
+	margin: 2px;
+}
+.filingdata{
+	width: 50%;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+input{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 20px;
+}
+
+button{
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	color: #ffffff;
+}
+
+button[name=criar_tabela]{
+	background-color: rgba(0, 96, 167, 0.85);
+}
+
+button[name=add_new_line], button[name=remove_line]{
+	width: 25%;
+}
+
+button[name=add_new_line]{
+	background-color: #04cd61;
+}
+
+button[name=remove_line]{
+	background-color: #cd0404;
+}
+
+#listofprocesses{
+	width: 90%;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 20px;
+}
+
+#listofprocesses input{
+	width: 30%;
+	margin-right: 4px;
+	margin-bottom: 4px;
+}
+
+/* span{
+	width: 50%;
+	color: #cd0404;
+} */
+/* table, tr, th, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+} */

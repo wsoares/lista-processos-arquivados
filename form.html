@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Formulário de processos enviados ao Arquivo Central</title>
-
+    <link rel="stylesheet" href="style.css">
     <!-- jQuery -->
     <script src="jquery.min.js"></script>
 
@@ -26,6 +26,7 @@
           var author = document.createElement("input");
           author.type = "text";
           author.name = "author[]";
+          author.placeholder = "PARTE AUTORA";
           author.value = "";
           author.size = "30";
           author.required = true;
@@ -33,6 +34,7 @@
           var defendant = document.createElement("input");
           defendant.type = "text";
           defendant.name = "defendant[]";
+          defendant.placeholder = "PARTE REQUERIDA";
           defendant.value = "";
           defendant.size = "30";
           defendant.required = true;
@@ -96,31 +98,37 @@
             row.insertCell(1).innerHTML = listofprocesses.elements['author[]'][i].value;
             row.insertCell(2).innerHTML = listofprocesses.elements['defendant[]'][i].value;
           }
-          document.getElementsByTagName("body")[0].appendChild(table);
+          var cssfile = document.createElement('link');
+          cssfile.rel = 'stylesheet';
+          // cssfile.type = 'text/css';
+          cssfile.href = 'style.css';
+          var newWindow = window.open();
+          // newWindow.document.getElementsByTagName('head')[0].appendChild(cssfile);
+          // newWindow.document.getElementsByTagName('head')[0].innerHTML = "<link rel='stylesheet' type='text/css' href='style.css'>";
+          // newWindow.document.head.appendChild(cssfile);
+          // newWindow.document.body.innerHTML = "<link rel='stylesheet' type='text/css' href='style.css'>";
+
+          newWindow.document.body.appendChild(cssfile);
+          newWindow.document.body.appendChild(table);
         }
     </script>
   </head>
   <body>
     <header>
-       <h1>Listagem de processos enviados para o Arquivo Central</h1>
+       <h1>Listagem de processos a serem enviados para o Arquivo Central</h1>
     </header>
     <form id="filingform">
-      <div>
+      <div class='filingdata'>
         <label for="caixa">Insira o número da Caixas-Arquivo:</label>
-        <input type="text" id="caixa" name="num_cx" size="3">
-      </div>
-      <div>
+        <input type="text" id="caixa" name="num_cx" size="3"> <br>
         <label for="linhasdatabela">Insira o tamanho da tabela:</label>
-        <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2">
+        <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2"> <br>
         <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
       </div>
       <div id="listofprocesses" class="table">
-        <span class='header'>Numero do processo</span>
-        <span class="header">Parte autora</span>
-        <span class="header">Parte Requerida</span><br>
       </div>
-      <button type="button" name="add_new_line" onclick="addRow();">Add</button>
-      <button type="button" name="remove_line" onclick="removeRow();">Remove</button>
+      <button type="button" name="add_new_line" onclick="addRow();">Adicionar nova linha</button>
+      <button type="button" name="remove_line" onclick="removeRow();">Remover ultima linha</button>
       <button type="button" name="generate_list" onclick="generateList();">Gerar Lista</button>
     </form>
   </body>
