@@ -79,6 +79,12 @@
 
         }
 
+        function deleteTable(){
+          if(confirm("Você deseja excluir a lista?")){
+          document.getElementById("listofprocesses").innerHTML = '';
+          }
+        }
+
         function generateList(){
           var listofprocesses = document.getElementById('filingform');
           var total = listofprocesses.elements['num_processo[]'].length;
@@ -119,16 +125,17 @@
     </header>
     <form id="filingform">
       <div class='filingdata'>
-        <label for="caixa">Insira o número da Caixas-Arquivo:</label>
+        <label for="caixa">Caixa-arquivo nº:</label>
         <input type="text" id="caixa" name="num_cx" size="3"> <br>
-        <label for="linhasdatabela">Insira o tamanho da tabela:</label>
+        <label for="linhasdatabela">Quantidade de processos:</label>
         <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2"> <br>
         <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
       </div>
       <div id="listofprocesses" class="table">
       </div>
-      <button type="button" name="add_new_line" onclick="addRow();">Adicionar nova linha</button>
-      <button type="button" name="remove_line" onclick="removeRow();">Remover ultima linha</button>
+      <button type="button" name="add_new_line" onclick="addRow();">Adicionar linha</button>
+      <button type="button" name="remove_line" onclick="removeRow();">Remover linha</button>
+      <button type="button" name="delete_table" onclick="deleteTable();">Deletar lista</button>
       <button type="button" name="generate_list" onclick="generateList();">Gerar Lista</button>
     </form>
   </body>

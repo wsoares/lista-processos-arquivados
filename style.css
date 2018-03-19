@@ -4,34 +4,41 @@ body{
 }
 input{
 	margin: 2px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 20px;
+	text-transform: uppercase;
 }
 .filingdata{
+	margin: auto;
 	width: 50%;
 	background-color: #f2f2f2;
 	border-radius: 5px;
 	padding: 5px;
 }
 
-input{
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	font-size: 20px;
-}
-
 button{
 	width: 100%;
+	height: 50px;
 	border: none;
 	border-radius: 5px;
 	font-size: 20px;
+	font-weight: bold;
 	color: #ffffff;
 }
 
-button[name=criar_tabela]{
+button[name=criar_tabela], button[name=generate_list]{
+	margin: 10px auto;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: rgba(0, 96, 167, 0.85);
 }
 
-button[name=add_new_line], button[name=remove_line]{
-	width: 25%;
+button[name=add_new_line], button[name=remove_line],button[name=delete_table]{
+	width: 15%;
+	float: right;
 }
 
 button[name=add_new_line]{
@@ -42,18 +49,24 @@ button[name=remove_line]{
 	background-color: #cd0404;
 }
 
+button[name=delete_table]{
+	background-color: #ffa100;
+}
+
 #listofprocesses{
-	width: 90%;
+	/* width: 100%; */
 	background-color: #f2f2f2;
 	border-radius: 5px;
 	padding: 20px;
-	margin: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin: 20px auto;
 }
 
 #listofprocesses input{
 	width: 30%;
-	margin-right: 4px;
-	margin-bottom: 4px;
+	/* margin-right: 4px;
+	margin-bottom: 4px; */
 }
 
 /* span{
