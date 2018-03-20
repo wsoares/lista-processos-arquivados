@@ -87,7 +87,17 @@
 
         function generateList(){
           var listofprocesses = document.getElementById('filingform');
-          var total = listofprocesses.elements['num_processo[]'].length;
+          var total = listofprocesses.getElementsByTagName('input').length / 3;
+
+          //Defining the header of the new file
+          // var header = "<p>PODER JUDICIÁRIO DO ESTADO DA BAHIA</p>" +
+          // "<p>SECRETARIA JURÍDICA DO BALCÃO DE JUSTIÇA</p>" +
+          // "<p>Comarca de Feira de Santana</p>" +
+          // "<p>Rua Cel. Álvaro Simões, S/N, Queimadinha, CEP 44001-900 - Fórum Des. Filinto Bastos</p>";
+          //
+          // var signature = "<p>Recebido em ____/____/____</p>" +
+          //                 "<p>__________________</p>";
+
 
           //Defining the table elements
           var table = document.createElement("table");
@@ -100,22 +110,20 @@
           //adding data
           for (var i = 0; i < total; i++) {
             row = table.insertRow(-1);
-            row.insertCell(0).innerHTML = listofprocesses.elements['num_processo[]'][i].value;
-            row.insertCell(1).innerHTML = listofprocesses.elements['author[]'][i].value;
-            row.insertCell(2).innerHTML = listofprocesses.elements['defendant[]'][i].value;
+            if(total == 1){
+              row.insertCell(0).innerHTML = listofprocesses.elements['num_processo[]'].value + ".8050080";
+              row.insertCell(1).innerHTML = listofprocesses.elements['author[]'].value;
+              row.insertCell(2).innerHTML = listofprocesses.elements['defendant[]'].value;
+            }else{
+              row.insertCell(0).innerHTML = listofprocesses.elements['num_processo[]'][i].value + ".8050080";
+              row.insertCell(1).innerHTML = listofprocesses.elements['author[]'][i].value;
+              row.insertCell(2).innerHTML = listofprocesses.elements['defendant[]'][i].value;
+            }
           }
-          var cssfile = document.createElement('link');
-          cssfile.rel = 'stylesheet';
-          // cssfile.type = 'text/css';
-          cssfile.href = 'style.css';
           var newWindow = window.open();
-          // newWindow.document.getElementsByTagName('head')[0].appendChild(cssfile);
-          // newWindow.document.getElementsByTagName('head')[0].innerHTML = "<link rel='stylesheet' type='text/css' href='style.css'>";
-          // newWindow.document.head.appendChild(cssfile);
-          // newWindow.document.body.innerHTML = "<link rel='stylesheet' type='text/css' href='style.css'>";
-
-          newWindow.document.body.appendChild(cssfile);
+          // newWindow.document.body.innerHTML= header;
           newWindow.document.body.appendChild(table);
+          // newWindow.document.body.innerHTML += signature;
         }
     </script>
   </head>
@@ -123,14 +131,15 @@
     <header>
        <h1>Listagem de processos a serem enviados para o Arquivo Central</h1>
     </header>
+    <div class='filingdata'>
+      <label for="caixa">Caixa-arquivo nº:</label>
+      <input type="text" id="caixa" name="num_cx" size="3"> <br>
+      <label for="linhasdatabela">Quantidade de processos:</label>
+      <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="1" size="2"> <br>
+      <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
+    </div>
     <form id="filingform">
-      <div class='filingdata'>
-        <label for="caixa">Caixa-arquivo nº:</label>
-        <input type="text" id="caixa" name="num_cx" size="3"> <br>
-        <label for="linhasdatabela">Quantidade de processos:</label>
-        <input type="text" id="linhasdatabela" name="tamanho_da_tabela" value="20" size="2"> <br>
-        <button type="button" name="criar_tabela" onclick="createTable();">Criar tabela</button>
-      </div>
+
       <div id="listofprocesses" class="table">
       </div>
       <button type="button" name="add_new_line" onclick="addRow();">Adicionar linha</button>
