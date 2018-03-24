@@ -1,0 +1,24 @@
+table, tr, th, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+table{
+	page-break-inside: avoid;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+h1, table, p{font-size: 10pt;}
+h1,p{text-align: center;}
+td{
+  padding-left: 15px;
+	padding-right: 15px;
+}
+thead{
+  background-color: #000000;
+  color: #ffffff;
+	text-align: center;
+}
+body{font-family: Arial, serif;}
+@page{size: A4;}
